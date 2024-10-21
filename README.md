@@ -1,5 +1,6 @@
 Simulador de Financiamento Imobiliário - EM CONSTRUÇÃO 
-Este projeto é uma aplicação em Java para simular financiamentos imobiliários com diferentes regras de cálculo para imóveis como casas, apartamentos e terrenos. O sistema permite calcular o valor mensal e o total do financiamento com base em características específicas de cada tipo de imóvel, além de considerar as taxas de juros e prazos informados.
+
+- Este projeto é uma aplicação em Java para simular financiamentos imobiliários com diferentes regras de cálculo para imóveis como casas, apartamentos e terrenos. O sistema permite calcular o valor mensal e o total do financiamento com base em características específicas de cada tipo de imóvel, além de considerar as taxas de juros e prazos informados.
 
 Funcionalidades: 
 - Simulação de financiamento para três tipos de imóveis: Casa, Apartamento e Terreno.
