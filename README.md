@@ -1,3 +1,0 @@
-# sistemauniversitario_puc
-# sistemabancario_financiamento
-# sistemabancario_financiamento
