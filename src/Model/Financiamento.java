@@ -1,19 +1,37 @@
+package Model;
+
 public class Financiamento {
 
     //Atributos
-    double valorImovel;
-    int prazoFinanciamento;
-    double taxaJurosAnual;
+    protected double valorImovel;
+    protected int prazoFinanciamento;
+    protected double taxaJurosAnual;
 
-    //Construtor
-    Financiamento (double valorDesejadoImovel, int prazoFinanciamentoEmAnos, double taxaJurosAnual) {
+    //getter
+
+    public double getValorImovel() {
+        return this.valorImovel;
+    }
+
+    public int getPrazoFinanciamento() {
+        return this.prazoFinanciamento;
+    }
+
+    public double getTaxaJurosAnual() {
+        return this.taxaJurosAnual;
+    }
+
+
+
+    //Construtor - é um métod.
+    public Financiamento (double valorDesejadoImovel, int prazoFinanciamentoEmAnos, double taxaJurosAnual) {
         this.valorImovel = valorDesejadoImovel;
         this.prazoFinanciamento = prazoFinanciamentoEmAnos;
         this.taxaJurosAnual = taxaJurosAnual;
     }
 
     //Metodos
-    double calcularPagamentoMensal(){ //colocar as ações do metodo em verbo p/ facilitar o entendimento
+    public double calcularPagamentoMensal(){ //colocar as ações do metodo em verbo p/ facilitar o entendimento
 
         //fórmula informada do enunciado da atividade
         //Pagamento mensal = (valor do imóvel / (prazo do financiamento em anos * 12)) * (1 + (taxa anual / 12))
@@ -21,7 +39,7 @@ public class Financiamento {
 
     }
 
-    double calcularTotalPagamento() {
+    public double calcularTotalPagamento() {
         //fórmula informada do enunciado da atividade
         //Total do pagamento = pagamento mensal * prazo do financiamento em anos * 12
         return this.calcularPagamentoMensal() * this.prazoFinanciamento * 12;
