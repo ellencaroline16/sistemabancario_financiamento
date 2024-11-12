@@ -43,8 +43,9 @@ public class InterfaceUsuario {
             System.out.println("Digite o prazo do financiamento em anos, o número deve ser positivo: ");
             prazoFinanciamento = scanner.nextInt();
 
-            if (prazoFinanciamento <= 0) {}
-            System.out.println(" Erro: O prazo do financiamento deve ser positivo. Por gentileza, tente novamente. ");
+            if (prazoFinanciamento <= 0) {
+            System.out.println(" Erro: O prazo do financiamento deve ser positivo. Por gentileza, tente novamente. "); }
+
         } while (prazoFinanciamento <= 0);
         return prazoFinanciamento;
     }

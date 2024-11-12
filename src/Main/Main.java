@@ -40,16 +40,16 @@ public class Main {
 
 
         for (Financiamento finan : financiamentos) {
-            System.out.println("O valor mensal do financiamento será de: " + finan.calcularPagamentoMensal());
-            System.out.println("O valor total do financiamento será de: " + finan.calcularTotalPagamento());
+            System.out.println("O valor mensal do financiamento será de: " + String.format("%.2f", finan.calcularPagamentoMensal()));
+            System.out.println("O valor total do financiamento será de: " + String.format("%.2f", finan.calcularTotalPagamento()));
 
 
             somaImoveis += finan.getValorImovel();
             somaFinanciamentos += finan.calcularTotalPagamento();
         }
 
-        System.out.println("Soma total dos valores dos imóveis: " + somaImoveis);
-        System.out.println("Soma total dos valores dos financiamentos: " + somaFinanciamentos);
+        System.out.println("Soma total dos valores dos imóveis: " + String.format("%.2f", somaImoveis));
+        System.out.println("Soma total dos valores dos financiamentos: " + String.format("%.2f", somaFinanciamentos));
     }
 }
 
