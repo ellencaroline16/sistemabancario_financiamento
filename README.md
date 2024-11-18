@@ -1,23 +1,12 @@
 Simulador de Financiamento Imobiliário - EM CONSTRUÇÃO 
 
-- Este projeto é uma aplicação em Java para simular financiamentos imobiliários com diferentes regras de cálculo para imóveis como casas, apartamentos e terrenos. O sistema permite calcular o valor mensal e o total do financiamento com base em características específicas de cada tipo de imóvel, além de considerar as taxas de juros e prazos informados.
+- Este projeto é uma aplicação em Java para simular financiamentos imobiliários com diferentes regras de cálculo para imóveis, o sistema permite calcular o valor mensal e o total do financiamento com base em características específicas de cada tipo de imóvel, além de considerar as taxas de juros e prazos informados.
 
 Funcionalidades: 
-- Simulação de financiamento para três tipos de imóveis: Casa, Apartamento e Terreno.
+- Simulação de financiamento para três tipos de imóveis: Casa, apartamento e terreno.
 - Cálculo do valor mensal das parcelas e valor total do financiamento.
-
-  
-- Regras específicas para cada tipo de imóvel:
-- Casa: Adição de uma taxa de seguro obrigatório de R$ 80 por parcela.
-- Apartamento: Cálculo das parcelas usando o sistema de amortização PRICE.
-- Terreno: Adição de um acréscimo de 2% no valor da parcela para considerar o risco de inadimplência.
-Entrada de dados do usuário via terminal (para um financiamento) e inclusão de financiamentos adicionais diretamente no código. Cálculo da soma total dos valores dos imóveis e dos financiamentos.
-
-Tecnologias Utilizadas:
+- Regras específicas para cada tipo de imóvel.
 - Java: Linguagem de programação principal.
-- Programação Orientada a Objetos (POO): Utilização de herança para estender a classe Financiamento e criar regras específicas para cada tipo de imóvel.
+- Programação Orientada a Objetos (POO): Utilização de herança para estender a classe financiamento e criar regras específicas para cada tipo de imóvel.
+- Estrutura do projeto dividido em três pacotes: model, util e main. 
 
-Estrutura do Projeto
-- Pacote Model: Contém as classes principais do projeto, incluindo Financiamento, Casa, Apartamento, e Terreno.
-- Pacote Util: Inclui a classe InterfaceUsuario, responsável por obter as informações de entrada do usuário.
-- Classe Main: Ponto de entrada da aplicação. Realiza a simulação e exibe os resultados no console.
