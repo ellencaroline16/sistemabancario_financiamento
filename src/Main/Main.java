@@ -39,17 +39,24 @@ public class Main {
         double somaFinanciamentos = 0;
 
 
-        for (Financiamento finan : financiamentos) {
-            System.out.println("O valor mensal do financiamento será de: " + String.format("%.2f", finan.calcularPagamentoMensal()));
-            System.out.println("O valor total do financiamento será de: " + String.format("%.2f", finan.calcularTotalPagamento()));
+        for (Financiamento finan : financiamentos) { // formula para separar o valor no terminal mais organizado
+            String tipoImovel = "";
+            if (finan instanceof Casa) { // o instanceof me indica o que tá sendo simulado - qual imóvel
+                tipoImovel = "Casa";
+            } else if (finan instanceof Apartamento) {
+                tipoImovel = "Apartamento";
+            } else if (finan instanceof Terreno) {
+                tipoImovel = "Terreno";
+            }
 
+            System.out.println("\nTipo de Imóvel: " + tipoImovel);
+            System.out.println("Valor do imóvel: " + String.format("%.2f", finan.getValorImovel()));
+            System.out.println("Valor mensal do financiamento: " + String.format("%.2f", finan.calcularPagamentoMensal()));
+            System.out.println("Valor total do financiamento: " + String.format("%.2f", finan.calcularTotalPagamento()));
 
             somaImoveis += finan.getValorImovel();
             somaFinanciamentos += finan.calcularTotalPagamento();
         }
-
-        System.out.println("Soma total dos valores dos imóveis: " + String.format("%.2f", somaImoveis));
-        System.out.println("Soma total dos valores dos financiamentos: " + String.format("%.2f", somaFinanciamentos));
     }
 }
 

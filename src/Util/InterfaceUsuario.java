@@ -2,24 +2,23 @@ package Util;
 
 import java.util.Scanner;
 
-// entradas de dados do usuário, é ela quem vai fazer a integração
-// implementar o scanner
-
-
 public class InterfaceUsuario {
 
-     Scanner scanner = new Scanner(System.in);
-     String comprador; // solicitando o nome do comprador
+    private static double limite_de_valor_do_imovel = 3_000_000.00; // limitando o valor
+    private static int limite_de_prazo_financiamento = 32;
 
-     public InterfaceUsuario() {
-         this.comprador = criarLogin(); // criando um met.constr.
-     }
+    Scanner scanner = new Scanner(System.in);
+    String comprador; // solicitando o nome do comprador
 
-     public String criarLogin() {
-         System.out.println("Digite seu nome: "); // impressão do nome no console
-         String login = scanner.nextLine();
-         return login;
-     }
+    public InterfaceUsuario() {
+        criarLogin(); // met.constr
+    }
+
+    private void criarLogin() {
+        System.out.println("Digite seu nome: ");
+        this.comprador = scanner.nextLine();
+        System.out.println("Olá, " + this.comprador + "! Vamos começar a simulação de financiamentos.");
+    }
 
     public double pedirValorImovel() {
         double valorImovel;
@@ -29,11 +28,13 @@ public class InterfaceUsuario {
             valorImovel = scanner.nextDouble();
 
             if (valorImovel <= 0) {
-                System.out.println(" Erro: O valor do imóvel deve ser positivo. Por gentileza, tente novamente. ");
-
+                System.out.println("Erro: O valor do imóvel deve ser positivo. Por gentileza, tente novamente.");
+            } else if (valorImovel > limite_de_valor_do_imovel) {
+                System.out.println("Erro: o valor do imóvel não pode exceder 3.000.000,00. Por gentileza, insira um valor menor.");
             }
-        } while (valorImovel <= 0); // enquanto o valor não for positivo ou maior do que zero, ele vai entrar no loop
-            return valorImovel;
+        } while (valorImovel <= 0 || valorImovel > limite_de_valor_do_imovel);
+
+        return valorImovel;
     }
 
     public int pedirPrazoFinanciamento() {
@@ -44,14 +45,18 @@ public class InterfaceUsuario {
             prazoFinanciamento = scanner.nextInt();
 
             if (prazoFinanciamento <= 0) {
-            System.out.println(" Erro: O prazo do financiamento deve ser positivo. Por gentileza, tente novamente. "); }
+                System.out.println("Erro: O prazo de financiamento deve ser positivo. Por gentileza, tente novamente.");
+            } else if (prazoFinanciamento > limite_de_prazo_financiamento) {
+                System.out.printf("Erro: O prazo do financiamento não pode exceder 32 anos. Por gentileza, tente novamente.%n");
+            }
+        } while (prazoFinanciamento <= 0 || prazoFinanciamento > limite_de_prazo_financiamento);
 
-        } while (prazoFinanciamento <= 0);
         return prazoFinanciamento;
     }
 
     public double pedirTaxaJuros() {
         double taxaJuros;
+        double limite_de_taxa_juros = 15.0; // limite da taxa
 
         do {
             System.out.println("Digite a taxa de juros anual, o valor deve ser positivo: ");
@@ -59,9 +64,11 @@ public class InterfaceUsuario {
 
             if (taxaJuros <= 0) {
                 System.out.println("Erro: A taxa de juros deve ser positiva. Por gentileza, tente novamente.");
+            } else if (taxaJuros > limite_de_taxa_juros) {
+                System.out.println("Erro: a taxa de juros não pode exceder o valor de 15%, por gentileza, insira um valor menor.");
             }
 
-        } while (taxaJuros <= 0);
+        } while (taxaJuros <= 0 || taxaJuros > limite_de_taxa_juros);
 
         return taxaJuros;
     }
