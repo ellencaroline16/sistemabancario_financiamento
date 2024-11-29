@@ -1,0 +1,4 @@
+Valor do Imóvel: 10000,00, Prazo: 9 anos, Taxa de Juros: 6,00%
+Valor do Imóvel: 100000,00, Prazo: 9 anos, Taxa de Juros: 5,00%
+Valor do Imóvel: 1000000,00, Prazo: 9 anos, Taxa de Juros: 5,00%
+Valor do Imóvel: 20000,00, Prazo: 9 anos, Taxa de Juros: 8,00%

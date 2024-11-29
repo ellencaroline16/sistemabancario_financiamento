@@ -6,6 +6,8 @@ import Model.Financiamento;
 import Model.Terreno;
 import Util.InterfaceUsuario;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
@@ -17,16 +19,17 @@ public class Main {
         ArrayList<Financiamento> financiamentos = new ArrayList<>();
 
         // para financiar uma casa
-        Casa primeiraCasa = new Casa(login.pedirValorImovel(), login.pedirPrazoFinanciamento(), login.pedirTaxaJuros());
+        Casa primeiraCasa = new Casa(login.pedirValorImovel(), login.pedirPrazoFinanciamento(), login.pedirTaxaJuros(), login.pedirAreaConstruida(), login.pedirAreaConstruida());
         financiamentos.add(primeiraCasa);
 
         // simulando outros financiamentos mas dentro do código:
 
-        Casa segundaCasa = new Casa(600000, 20, 10);
-        Apartamento primeiroApartamento = new Apartamento(4800000, 25, 8);
-        Apartamento segundoApartamento = new Apartamento(2800000, 12, 6);
-        Terreno primeiroTerreno = new Terreno(3000000, 10, 5);
+        Casa segundaCasa = new Casa(600000, 20, 10,50,2);
+        Apartamento primeiroApartamento = new Apartamento(4800000, 25, 8, 2, 5);
+        Apartamento segundoApartamento = new Apartamento(2800000, 12, 6,3,80);
+        Terreno primeiroTerreno = new Terreno(3000000, 10, 5, "Residencial");
 
+        salvarDadosNoArquivo(financiamentos);
 
         // adicionando as infos da classe financiamento com as demais = fazendo a operação/simulação de forma mais reduzida
         financiamentos.add(segundaCasa);
@@ -58,9 +61,19 @@ public class Main {
             somaFinanciamentos += finan.calcularTotalPagamento();
         }
     }
+
+    public static void salvarDadosNoArquivo(ArrayList<Financiamento> financiamentos) {
+        String arquivo = "financiamentos.txt";
+
+        try (FileWriter writer = new FileWriter(arquivo, true)) {
+
+            for (Financiamento financiamento : financiamentos) {
+                writer.write(financiamento.toString() + "\n");
+            }
+            System.out.println("\nDados salvos com sucesso no arquivo: " + arquivo);
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar os dados no arquivo: " + e.getMessage());
+        }
+    }
 }
 
-    //Financiamento fin = new Financiamento(login.pedirValorImovel(), login.pedirPrazoFinanciamento(), login.pedirTaxaJuros());
-    // objeto fin chama os métodos que estão na classe financiamento valor do imovel, prazo do financiamento e a taxa
-    //System.out.println("O valor total do seu financiamento será de: " + fin.calcularTotalPagamento());
-    //System.out.println("O valor mensal do seu financiamento será de: " + fin.calcularPagamentoMensal());
